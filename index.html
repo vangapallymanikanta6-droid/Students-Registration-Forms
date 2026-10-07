@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-body">
+    <div class="container auth-shell">
+      <div class="card form-card">
+        <div class="card-header center">
+          <h1>Student Signup</h1>
+          <p>Register your account</p>
+        </div>
+
+        <form id="signupForm" class="stacked-form">
+          <div class="grid two-col">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+          </div>
+
+          <div class="grid two-col">
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" required />
+            </div>
+            <div class="field">
+              <label for="dob">Date of Birth</label>
+              <input id="dob" name="dob" type="date" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Gender</label>
+            <div class="radio-row">
+              <label><input type="radio" name="gender" value="Male" required /> Male</label>
+              <label><input type="radio" name="gender" value="Female" /> Female</label>
+              <label><input type="radio" name="gender" value="Other" /> Other</label>
+            </div>
+          </div>
+
+          <div class="grid two-col">
+            <div class="field">
+              <label for="qualification">Qualification</label>
+              <select id="qualification" name="qualification" required>
+                <option value="">Select</option>
+                <option>10th</option>
+                <option>12th</option>
+                <option>Diploma</option>
+                <option>Bachelor's Degree</option>
+                <option>Master's Degree</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="className">Class</label>
+              <input id="className" name="className" type="text" required />
+            </div>
+          </div>
+
+          <div class="grid two-col">
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required />
+            </div>
+            <div class="field">
+              <label for="marks">Marks</label>
+              <input id="marks" name="marks" type="number" min="0" max="100" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Interests</label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="interests" value="Coding" /> Coding</label>
+              <label><input type="checkbox" name="interests" value="Sports" /> Sports</label>
+              <label><input type="checkbox" name="interests" value="Music" /> Music</label>
+              <label><input type="checkbox" name="interests" value="Reading" /> Reading</label>
+              <label><input type="checkbox" name="interests" value="Art" /> Art</label>
+              <label><input type="checkbox" name="interests" value="Travel" /> Travel</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="aadhaarFile">Upload Aadhaar (PDF only)</label>
+            <input id="aadhaarFile" name="aadhaarFile" type="file" accept="application/pdf" required />
+          </div>
+
+          <div id="errorBox" class="error-box" aria-live="polite"></div>
+
+          <button type="submit" class="button primary">Register</button>
+        </form>
+
+        <div class="switch-link">
+          Already registered? <a href="login.html">Login here</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

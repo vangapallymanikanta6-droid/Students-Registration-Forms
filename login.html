@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-body">
+    <div class="container auth-shell">
+      <div class="card form-card narrow">
+        <div class="card-header center">
+          <h1>Login</h1>
+          <p>Admin and student access</p>
+        </div>
+
+        <form id="loginForm" class="stacked-form">
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="loginEmail" type="email" required />
+          </div>
+
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="loginPassword" type="password" required />
+          </div>
+
+          <div id="loginError" class="error-box" aria-live="polite"></div>
+
+          <button type="submit" class="button primary">Login</button>
+        </form>
+
+        <div class="text-actions">
+          <button id="forgotPasswordBtn" type="button" class="link-button">Forgot Password?</button>
+        </div>
+
+        <div class="switch-link">
+          New here? <a href="index.html">Create account</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dashboard-body">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <h2>Student Dashboard</h2>
+        <div class="topbar-actions">
+          <span id="studentUserBadge"></span>
+          <button id="logoutBtn" class="button secondary">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container dashboard-shell">
+      <section class="panel welcome-panel">
+        <h1 id="welcomeBanner"></h1>
+        <button id="editProfileBtn" class="button primary">Edit Profile</button>
+      </section>
+
+      <section class="panel info-panel">
+        <h3>Profile Details</h3>
+        <div id="studentProfileDetails" class="details-grid"></div>
+      </section>
+    </main>
+
+    <div id="studentEditModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Edit Profile</h3>
+          <button class="close-modal" type="button" aria-label="Close">&times;</button>
+        </div>
+        <form id="studentEditForm" class="stacked-form">
+          <div class="grid two-col">
+            <div class="field">
+              <label for="studentEditName">Name</label>
+              <input id="studentEditName" name="studentEditName" type="text" required />
+            </div>
+            <div class="field">
+              <label for="studentEditEmail">Email</label>
+              <input id="studentEditEmail" name="studentEditEmail" type="email" readonly />
+            </div>
+          </div>
+
+          <div class="grid two-col">
+            <div class="field">
+              <label for="studentEditPassword">Password</label>
+              <input id="studentEditPassword" name="studentEditPassword" type="text" />
+            </div>
+            <div class="field">
+              <label for="studentEditDob">Date of Birth</label>
+              <input id="studentEditDob" name="studentEditDob" type="date" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Gender</label>
+            <div class="radio-row">
+              <label><input type="radio" name="studentGender" value="Male" /> Male</label>
+              <label><input type="radio" name="studentGender" value="Female" /> Female</label>
+              <label><input type="radio" name="studentGender" value="Other" /> Other</label>
+            </div>
+          </div>
+
+          <div class="grid two-col">
+            <div class="field">
+              <label for="studentEditQualification">Qualification</label>
+              <select id="studentEditQualification" name="studentEditQualification">
+                <option>10th</option>
+                <option>12th</option>
+                <option>Diploma</option>
+                <option>Bachelor's Degree</option>
+                <option>Master's Degree</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="studentEditClass">Class</label>
+              <input id="studentEditClass" name="studentEditClass" type="text" />
+            </div>
+          </div>
+
+          <div class="grid two-col">
+            <div class="field">
+              <label for="studentEditSubject">Subject</label>
+              <input id="studentEditSubject" name="studentEditSubject" type="text" />
+            </div>
+            <div class="field">
+              <label for="studentEditMarks">Marks</label>
+              <input id="studentEditMarks" name="studentEditMarks" type="number" min="0" max="100" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Interests</label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="studentInterests" value="Coding" /> Coding</label>
+              <label><input type="checkbox" name="studentInterests" value="Sports" /> Sports</label>
+              <label><input type="checkbox" name="studentInterests" value="Music" /> Music</label>
+              <label><input type="checkbox" name="studentInterests" value="Reading" /> Reading</label>
+              <label><input type="checkbox" name="studentInterests" value="Art" /> Art</label>
+              <label><input type="checkbox" name="studentInterests" value="Travel" /> Travel</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="studentEditAadhaar">Replace Aadhaar PDF</label>
+            <input id="studentEditAadhaar" name="studentEditAadhaar" type="file" accept="application/pdf" />
+          </div>
+
+          <div id="studentEditError" class="error-box" aria-live="polite"></div>
+
+          <div class="modal-actions">
+            <button type="submit" class="button primary">Update Profile</button>
+            <button type="button" class="button secondary close-modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

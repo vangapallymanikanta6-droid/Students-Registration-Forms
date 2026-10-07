@@ -1,0 +1,7 @@
+node_modules/
+.env
+businesslabs.db
+businesslabs.db-shm
+businesslabs.db-wal
+uploads/*
+!uploads/.gitkeep
