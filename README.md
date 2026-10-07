@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BusinessLabs Student Registration
 
 ## MySQL setup
@@ -31,3 +32,7 @@ Uploaded PDF files are saved under `uploads/` using randomized unique names. The
 4. The browser renders the API results on the student and admin dashboards.
 
 The previous SQLite database is not migrated to MySQL. New MySQL tables start with the seeded admin account; students must register again unless their data is imported separately.
+=======
+# Students-Registration-Forms
+A student registration and management system built with HTML, CSS, JavaScript, Node.js, Express, and MySQL. Students can register, upload Aadhaar PDFs, and manage their profiles. Admins can view, search, edit, and delete student records through a unified login and dashboard.
+>>>>>>> 0c2239244e79f57b83dfe98da2941c67f01f9c34
