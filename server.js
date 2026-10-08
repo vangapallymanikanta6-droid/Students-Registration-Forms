@@ -353,3 +353,4 @@ start().catch((error) => {
   console.error('Could not connect to or initialize MySQL:', error.message);
   process.exitCode = 1;
 });
+module.exports = app;
