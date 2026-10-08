@@ -15,15 +15,16 @@ if (!/^[a-zA-Z0-9_]+$/.test(DB_NAME)) {
 }
 
 const dbConfig = {
-  host: process.env.DB_HOST || '127.0.0.1',
-  port: Number(process.env.DB_PORT || 3306),
-  user: process.env.DB_USER || 'root',
+  host: process.env.DB_HOST || 'mysql-3d5eeed-vangapallymanikanta6-2948.k.aivencloud.com',
+  port: Number(process.env.DB_PORT || 12685),
+  user: process.env.DB_USER || 'avnadmin',
   password: process.env.DB_PASSWORD || '',
-  database: DB_NAME,
+  database: process.env.DB_NAME || 'default_db',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
   dateStrings: true,
+  ssl: process.env.DB_HOST && process.env.DB_HOST !== '127.0.0.1' ? { rejectUnauthorized: false } : false
 };
 
 // Create connection pool for serverless queries
@@ -83,9 +84,9 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(ROOT_DIR));
 
-// Root route handler to fix "Cannot GET /"
+// Serve index.html on root route instead of sending API JSON message
 app.get('/', (_req, res) => {
-  res.json({ message: 'BusinessLabs API Server running' });
+  res.sendFile(path.join(ROOT_DIR, 'index.html'));
 });
 
 app.get('/health', asyncRoute(async (_req, res) => {
