@@ -8,7 +8,7 @@ const crypto = require('crypto');
 
 const app = express();
 const PORT = Number(process.env.PORT || 8000);
-const ROOT_DIR = path.join(__dirname, '../frontend');
+const ROOT_DIR = __dirname;
 const DB_NAME = process.env.DB_NAME || 'businesslabs';
 
 if (!/^[a-zA-Z0-9_]+$/.test(DB_NAME)) {
@@ -134,10 +134,10 @@ app.post('/api/login', asyncRoute(async (req, res) => {
 
   const [rows] = await pool.execute(
     `
-    SELECT *
-    FROM users
-    WHERE LOWER(email) = LOWER(?)
-    AND password = ?
+      SELECT *
+      FROM users
+      WHERE LOWER(email) = LOWER(?)
+      AND password = ?
     `,
     [
       String(email).trim(),
@@ -184,9 +184,9 @@ app.post(
 
     const [existing] = await pool.execute(
       `
-      SELECT id
-      FROM users
-      WHERE LOWER(email) = LOWER(?)
+        SELECT id
+        FROM users
+        WHERE LOWER(email) = LOWER(?)
       `,
       [email]
     );
@@ -208,23 +208,23 @@ app.post(
     try {
       const [result] = await pool.execute(
         `
-        INSERT INTO users
-        (
-          name,
-          email,
-          password,
-          dob,
-          gender,
-          qualification,
-          className,
-          subject,
-          marks,
-          interests,
-          role,
-          aadhaarFileName,
-          aadhaarOriginalName
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'student', ?, ?)
+          INSERT INTO users
+          (
+            name,
+            email,
+            password,
+            dob,
+            gender,
+            qualification,
+            className,
+            subject,
+            marks,
+            interests,
+            role,
+            aadhaarFileName,
+            aadhaarOriginalName
+          )
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'student', ?, ?)
         `,
         [
           name,
@@ -344,20 +344,20 @@ app.put(
 
     await pool.execute(
       `
-      UPDATE users
-      SET
-        name = ?,
-        password = ?,
-        dob = ?,
-        gender = ?,
-        qualification = ?,
-        className = ?,
-        subject = ?,
-        marks = ?,
-        interests = ?,
-        aadhaarFileName = COALESCE(?, aadhaarFileName),
-        aadhaarOriginalName = COALESCE(?, aadhaarOriginalName)
-      WHERE id = ?
+        UPDATE users
+        SET
+          name = ?,
+          password = ?,
+          dob = ?,
+          gender = ?,
+          qualification = ?,
+          className = ?,
+          subject = ?,
+          marks = ?,
+          interests = ?,
+          aadhaarFileName = COALESCE(?, aadhaarFileName),
+          aadhaarOriginalName = COALESCE(?, aadhaarOriginalName)
+        WHERE id = ?
       `,
       [
         nextName,
@@ -436,9 +436,9 @@ app.post(
 
     const [result] = await pool.execute(
       `
-      UPDATE users
-      SET password = ?
-      WHERE LOWER(email) = LOWER(?)
+        UPDATE users
+        SET password = ?
+        WHERE LOWER(email) = LOWER(?)
       `,
       [
         String(password),
