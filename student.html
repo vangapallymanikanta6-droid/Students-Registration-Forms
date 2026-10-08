@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Relative static link for styles -->
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="dashboard-body">
     <header class="topbar">
@@ -12,7 +13,7 @@
         <h2>Student Dashboard</h2>
         <div class="topbar-actions">
           <span id="studentUserBadge"></span>
-          <button id="logoutBtn" class="button secondary">Logout</button>
+          <button id="logoutBtn" class="button secondary" type="button">Logout</button>
         </div>
       </div>
     </header>
@@ -20,7 +21,7 @@
     <main class="container dashboard-shell">
       <section class="panel welcome-panel">
         <h1 id="welcomeBanner"></h1>
-        <button id="editProfileBtn" class="button primary">Edit Profile</button>
+        <button id="editProfileBtn" class="button primary" type="button">Edit Profile</button>
       </section>
 
       <section class="panel info-panel">
@@ -29,13 +30,15 @@
       </section>
     </main>
 
-    <div id="studentEditModal" class="modal hidden">
+    <!-- Modal for editing student profile -->
+    <div id="studentEditModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Edit Profile</h3>
-          <button class="close-modal" type="button" aria-label="Close">&times;</button>
+          <h3 id="modalTitle">Edit Profile</h3>
+          <button class="close-modal" type="button" aria-label="Close modal">&times;</button>
         </div>
-        <form id="studentEditForm" class="stacked-form">
+        
+        <form id="studentEditForm" class="stacked-form" enctype="multipart/form-data">
           <div class="grid two-col">
             <div class="field">
               <label for="studentEditName">Name</label>
@@ -50,7 +53,7 @@
           <div class="grid two-col">
             <div class="field">
               <label for="studentEditPassword">Password</label>
-              <input id="studentEditPassword" name="studentEditPassword" type="text" />
+              <input id="studentEditPassword" name="studentEditPassword" type="password" placeholder="Leave blank to keep current" />
             </div>
             <div class="field">
               <label for="studentEditDob">Date of Birth</label>
@@ -71,11 +74,12 @@
             <div class="field">
               <label for="studentEditQualification">Qualification</label>
               <select id="studentEditQualification" name="studentEditQualification">
-                <option>10th</option>
-                <option>12th</option>
-                <option>Diploma</option>
-                <option>Bachelor's Degree</option>
-                <option>Master's Degree</option>
+                <option value="">Select Qualification</option>
+                <option value="10th">10th</option>
+                <option value="12th">12th</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                <option value="Master's Degree">Master's Degree</option>
               </select>
             </div>
             <div class="field">
@@ -90,7 +94,7 @@
               <input id="studentEditSubject" name="studentEditSubject" type="text" />
             </div>
             <div class="field">
-              <label for="studentEditMarks">Marks</label>
+              <label for="studentEditMarks">Marks (%)</label>
               <input id="studentEditMarks" name="studentEditMarks" type="number" min="0" max="100" />
             </div>
           </div>
@@ -108,7 +112,7 @@
           </div>
 
           <div class="field">
-            <label for="studentEditAadhaar">Replace Aadhaar PDF</label>
+            <label for="studentEditAadhaar">Replace Identification Document PDF</label>
             <input id="studentEditAadhaar" name="studentEditAadhaar" type="file" accept="application/pdf" />
           </div>
 
@@ -122,6 +126,7 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Main JS Application Logic -->
+    <script src="./app.js"></script>
   </body>
 </html>

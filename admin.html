@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Relative static link for styles -->
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="dashboard-body">
     <header class="topbar">
@@ -12,7 +13,7 @@
         <h2>Admin Dashboard</h2>
         <div class="topbar-actions">
           <span id="adminUserBadge"></span>
-          <button id="logoutBtn" class="button secondary">Logout</button>
+          <button id="logoutBtn" class="button secondary" type="button">Logout</button>
         </div>
       </div>
     </header>
@@ -51,7 +52,7 @@
                 <th>Class</th>
                 <th>Age</th>
                 <th>Qualification</th>
-                <th>Aadhaar</th>
+                <th>Document</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -61,13 +62,15 @@
       </section>
     </main>
 
-    <div id="editModal" class="modal hidden">
+    <!-- Modal for editing student details -->
+    <div id="editModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Edit Student</h3>
-          <button class="close-modal" type="button" aria-label="Close">&times;</button>
+          <h3 id="modalTitle">Edit Student</h3>
+          <button class="close-modal" type="button" aria-label="Close modal">&times;</button>
         </div>
-        <form id="editStudentForm" class="stacked-form">
+        
+        <form id="editStudentForm" class="stacked-form" enctype="multipart/form-data">
           <div class="field">
             <label for="editName">Name</label>
             <input id="editName" name="editName" type="text" required />
@@ -78,7 +81,7 @@
           </div>
           <div class="field">
             <label for="editPassword">Password</label>
-            <input id="editPassword" name="editPassword" type="text" />
+            <input id="editPassword" name="editPassword" type="password" placeholder="Leave blank to keep current" />
           </div>
           <div class="grid two-col">
             <div class="field">
@@ -94,23 +97,26 @@
             <div class="field">
               <label for="editQualification">Qualification</label>
               <select id="editQualification" name="editQualification">
-                <option>10th</option>
-                <option>12th</option>
-                <option>Diploma</option>
-                <option>Bachelor's Degree</option>
-                <option>Master's Degree</option>
+                <option value="">Select Qualification</option>
+                <option value="10th">10th</option>
+                <option value="12th">12th</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                <option value="Master's Degree">Master's Degree</option>
               </select>
             </div>
             <div class="field">
-              <label for="editMarks">Marks</label>
+              <label for="editMarks">Marks (%)</label>
               <input id="editMarks" name="editMarks" type="number" min="0" max="100" />
             </div>
           </div>
           <div class="field">
-            <label for="editAadhaar">Replace Aadhaar PDF</label>
+            <label for="editAadhaar">Replace Identification Document PDF</label>
             <input id="editAadhaar" name="editAadhaar" type="file" accept="application/pdf" />
           </div>
+
           <div id="editError" class="error-box" aria-live="polite"></div>
+
           <div class="modal-actions">
             <button type="submit" class="button primary">Save Changes</button>
             <button type="button" class="button secondary close-modal">Cancel</button>
@@ -119,6 +125,7 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Main JS Application Logic -->
+    <script src="./app.js"></script>
   </body>
 </html>

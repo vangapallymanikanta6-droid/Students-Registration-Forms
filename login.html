@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Login - BusinessLabs</title>
+    <!-- Explicit relative path to ensure CSS loads across environments -->
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="auth-body">
     <div class="container auth-shell">
@@ -14,15 +15,29 @@
           <p>Admin and student access</p>
         </div>
 
-        <form id="loginForm" class="stacked-form">
+        <form id="loginForm" class="stacked-form" autocomplete="on">
           <div class="field">
             <label for="loginEmail">Email</label>
-            <input id="loginEmail" name="loginEmail" type="email" required />
+            <input 
+              id="loginEmail" 
+              name="loginEmail" 
+              type="email" 
+              placeholder="e.g. student@example.com" 
+              autocomplete="email"
+              required 
+            />
           </div>
 
           <div class="field">
             <label for="loginPassword">Password</label>
-            <input id="loginPassword" name="loginPassword" type="password" required />
+            <input 
+              id="loginPassword" 
+              name="loginPassword" 
+              type="password" 
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required 
+            />
           </div>
 
           <div id="loginError" class="error-box" aria-live="polite"></div>
@@ -35,11 +50,12 @@
         </div>
 
         <div class="switch-link">
-          New here? <a href="index.html">Create account</a>
+          New here? <a href="./index.html">Create account</a>
         </div>
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Explicit relative path for JS execution -->
+    <script src="./app.js"></script>
   </body>
 </html>
